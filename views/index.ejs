@@ -10,19 +10,24 @@
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <!-- <script type="text/javascript" src="regisscripts/app.js"></script> -->
   <script rel="stylesheet" href="/styles/layout.css"></script>
+
+  <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
-<body>
-  <!-- import bootstrap navbar etc to match aesthetic -->
-  <form method="POST" action="/register">
-    <label for="new-user">Email: </label>
-    <input type="email" name="new-user">
-    <hr />
-    <label for="new-password">Password: </label>
-    <input type="password" name="new-password-1">
-    <button type="submit">SUBMIT</button>
-  </form>
-</body>
+  <body>
+    <h3>Welcome to /T A S K   A P P/</h3>
+    <br>
+    <button id="login-button">Login</button>
+    <article class="login-render">
+      <div class="login-area"></div>
+    </article>
+    <br>
+    <button id="register-button">Register</button>
+    <article class="register-render">
+      <div class="register-area"></div>
+    </article>
+    <br> 
+  </body>
 </html>
