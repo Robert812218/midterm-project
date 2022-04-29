@@ -39,6 +39,7 @@ const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
+// const indexRoutes = require("./routes/")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
