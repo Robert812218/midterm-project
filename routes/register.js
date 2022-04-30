@@ -1,8 +1,7 @@
 const express = require('express');
-const app = express;
 // const app = express;
 const router = express.Router();
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 
 // module.exports = (db) => {
 //   router.get("/register", (req, res) => {
@@ -12,6 +11,7 @@ const bcrypt = require('bcryptjs');
 //   router.get("/login", (req, res) => {
 //     res.render("/");
 //   });
+//   return router;
 // };
 
 module.exports = (db) => {
@@ -20,25 +20,28 @@ module.exports = (db) => {
       res.redirect("/");
     } else {
       res.render("/register");
-
-      router.post("/register", (req, res) => {
-        const newUserEmail = req.body.newUser;
-        const newUserPass = req.body.newPass;
-
-        let userID = generateRandomString(10);
-        if (!newUserEmail || !newUserPass) {
-          res.status(400).send("Invalid email and/or password");
-        } else if (newUserEmail && newUserPass) {
-          users[userID] = {
-            id: userID,
-            email: newUserEmail,
-            password: bcrypt.hashSync(newUserPass, 15)
-          };
-
-          req.session.currentUser = userID;
-          res.redirect('/');
-        }
-      });
     }
   });
+
+  router.post("/register", (req, res) => {
+    const newUserEmail = req.body.new-user;
+    const newUserPass = req.body.new-pass;
+
+    if (!newUserEmail || !newUserPass) {
+      res.status(400).send("Please enter a valid email or password.");
+    } else if (newUserEmail && newUserPass) {
+      let userID = { 
+        email: newUserEmail,
+        password: newUserPass
+      }
+      console.log(userID);
+      res.redirect('/');
+    };
+
+  });
+
+  router.get("/login", (req, res) => {
+    res.render("/");
+  });
 }
+
