@@ -1,0 +1,11 @@
+.bottom-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-container {
+  width: 500px;
+  height: 500px;
+  background-color: gray;
+}
