@@ -1,8 +1,10 @@
 -- Drop and recreate Widgets table (Example)
+DROP TABLE IF EXISTS todos CASCADE;
 
-DROP TABLE IF EXISTS widgets CASCADE;
-CREATE TABLE widgets (
+CREATE TABLE todos (
   id SERIAL PRIMARY KEY NOT NULL,
-  user_id INTEGER REFERENCES users(id),
-  name VARCHAR(255) NOT NULL
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  name VARCHAR(255) NOT NULL,
+  category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+  status BOOLEAN DEFAULT FALSE
 );
