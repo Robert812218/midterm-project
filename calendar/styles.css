@@ -2,10 +2,15 @@
   background-color: gray;
 }
 
+body {
+  display: flex;
+  flex-direction: row;
+}
+
 .outside-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+/*   align-items: center; */
+/*   justify-content: flex-start; */
 }
 
 .calendar-container {
@@ -44,6 +49,10 @@
   background-color: white;
 }
 
+.date-button {
+  border: 3px outset;
+}
+
 .day {
   border: 2px solid black;
 }
@@ -62,4 +71,14 @@
 .red-block {
   color: red;
   border: 5px red;
+}
+
+.date-schedule-container {
+  height: 500px;
+  width: 500px;
+  border: 5px solid black;
+}
+
+.date-schedule {
+  
 }

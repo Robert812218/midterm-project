@@ -2,61 +2,21 @@ $(document).ready(function() {
   const date = new Date();
   const today = date.getDate();
   const currentMonth = date.getMonth();
-  let $contain = $("#dates-container");
+  const $contain = $("#dates-container");
   let arr = months[currentMonth];
   addDates(arr);
-  // Selector context is implemented with the .find() method; therefore, $( "li.item-ii" ).find( "li" ) is equivalent to $( "li", "li.item-ii" ).
   
-  
-  $('#January').click(function() {
-    $contain.empty();
-    addDates(months[0]);
+  $("button").click(function() {
+    let item = findMonth(this.id);
+    console.log(item);
   });
-  $('#February').click(function() {
-    $contain.empty();
-    addDates(months[1]);
-  });
-  $('#March').click(function() {
-    $contain.empty();
-    addDates(months[2]);
-  });
-  $('#April').click(function() {
-        $contain.empty();
-    addDates(months[3]);
-  });
-  $('#May').click(function() {
-        $contain.empty();
-    addDates(months[4]);
-  });
-  $('#June').click(function() {
-        $contain.empty();
-    addDates(months[5]);
-  });
-  $('#July').click(function() {
-        $contain.empty();
-    addDates(months[6]);
-  });
-  $('#August').click(function() {
-        $contain.empty();
-    addDates(months[7]);
-  });
-  $('#September').click(function() {
-        $contain.empty();
-    addDates(months[8]);
-  });
-  $('#October').click(function() {
-        $contain.empty();
-    addDates(months[9]);
-  });
-  $('#November').click(function() {
-        $contain.empty();
-    addDates(months[10]);
-  });
-  $('#December').click(function() {
-        $contain.empty();
-    addDates(months[11]);
+  $(".date").click(function() {
+    console.log(this);
+    // let $ting = this;
+    // $ting.css('color','red');
   });
 });
+
 
 const addDates = function(conditions, day) {
   let start = conditions[0];
@@ -86,12 +46,73 @@ const addDates = function(conditions, day) {
 function appendBlock(inp) {
   const date = new Date();
   const today = date.getDate();
-  let $block = (inp > 0 ? `<div>${inp}</div>` : `<div></div>` );
+  let $block = (inp > 0 ? `<div class="date">
+  <button class="date-button">${inp}</button></div>` : `<div></div>` );
   // let $block2 = `<div class="red-block">${inp}<div>`;
   // $('#dates-container').append((inp === today) ? $block2 : $block);
 
   $("#dates-container").append($block);
 };
+
+function findMonth(inp) {
+  let $contain = $("#dates-container");
+  let out = 0;
+  switch(inp) {
+    case "January":
+      $contain.empty();
+      addDates(months[0]);
+      break;
+    case "February":
+      $contain.empty();
+      addDates(months[1]);
+      break;
+    case "March":
+      $contain.empty();
+      addDates(months[2]);
+      out += 2;
+      break;
+    case "April":
+      $contain.empty();
+      addDates(months[3]);
+      break;
+    case "May":
+      $contain.empty();
+      addDates(months[5]);
+      break;
+    case "June":
+      $contain.empty();
+      addDates(months[6]);
+      break;
+    case "July":
+      $contain.empty();
+      addDates(months[7]);
+      break;
+    case "August":
+      $contain.empty();
+      addDates(months[8]);
+      break;
+    case "September":
+      $contain.empty();
+      addDates(months[9]);
+      break;
+    case "October":
+      $contain.empty();
+      addDates(months[10]);
+      break;
+    case "November":
+      $contain.empty();
+      addDates(months[11]);
+      break;
+    case "December":
+      $contain.empty();
+      addDates(months[1]);
+      break;
+    default:
+      console.log(`error`);
+  }
+  return out;
+}
+
 
 // arr: [blankBefore, startIndex, blankAfter];
 const months = {
