@@ -24,7 +24,7 @@
   justify-content: space-evenly;
 }
 
-.dates-container {
+#dates-container {
   background: white;
   height: 500px;
   width: 500px;
