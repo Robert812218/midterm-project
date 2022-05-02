@@ -2,48 +2,96 @@ $(document).ready(function() {
   const date = new Date();
   const today = date.getDate();
   const currentMonth = date.getMonth();
-  console.log(`currentMonth: ${currentMonth}\nCurrent Day: ${today}`);
+  let $contain = $("#dates-container");
   let arr = months[currentMonth];
   addDates(arr);
+  // Selector context is implemented with the .find() method; therefore, $( "li.item-ii" ).find( "li" ) is equivalent to $( "li", "li.item-ii" ).
   
-  $('#dates-container[today]').css("background-color", "red");
-   
-   $('#January').click(function(){
-    $('.days-of-week').css("background-color", "red");
-    })
-  $('.month').click(function(){
-    addDates(arr);
-    console.log(`month clicked`);
-    // figure out how to make background of current date change color
-  })
+  
+  $('#January').click(function() {
+    $contain.empty();
+    addDates(months[0]);
+  });
+  $('#February').click(function() {
+    $contain.empty();
+    addDates(months[1]);
+  });
+  $('#March').click(function() {
+    $contain.empty();
+    addDates(months[2]);
+  });
+  $('#April').click(function() {
+        $contain.empty();
+    addDates(months[3]);
+  });
+  $('#May').click(function() {
+        $contain.empty();
+    addDates(months[4]);
+  });
+  $('#June').click(function() {
+        $contain.empty();
+    addDates(months[5]);
+  });
+  $('#July').click(function() {
+        $contain.empty();
+    addDates(months[6]);
+  });
+  $('#August').click(function() {
+        $contain.empty();
+    addDates(months[7]);
+  });
+  $('#September').click(function() {
+        $contain.empty();
+    addDates(months[8]);
+  });
+  $('#October').click(function() {
+        $contain.empty();
+    addDates(months[9]);
+  });
+  $('#November').click(function() {
+        $contain.empty();
+    addDates(months[10]);
+  });
+  $('#December').click(function() {
+        $contain.empty();
+    addDates(months[11]);
+  });
 });
 
-function addDates(conditions) {
+const addDates = function(conditions, day) {
   let start = conditions[0];
   let mid = conditions[1];
   let end = conditions[2];
-  let newArr = [];
   let count = 1;
-  let cont = $('#dates-container');
-  let blank = `<div>X</div>`;
-  
-  
+
+  if (start !== 0) {
+      do {
+      appendBlock(0);
+      start--;
+    } while (start > 0);
+  }
+
   do {
-    cont.append(blank);
-    start--;
-  } while (start > 0);
-  
-  do {
-    let block = `<div>${count}</div>`;
-    cont.append(block);
+    appendBlock(count);
     count++;
   } while (count < mid);
   
   do {
-    cont.append(blank);
+    appendBlock(0);
     end--;
   } while (end > 0);
-}
+  
+};
+
+function appendBlock(inp) {
+  const date = new Date();
+  const today = date.getDate();
+  let $block = (inp > 0 ? `<div>${inp}</div>` : `<div></div>` );
+  // let $block2 = `<div class="red-block">${inp}<div>`;
+  // $('#dates-container').append((inp === today) ? $block2 : $block);
+
+  $("#dates-container").append($block);
+};
 
 // arr: [blankBefore, startIndex, blankAfter];
 const months = {

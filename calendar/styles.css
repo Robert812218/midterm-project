@@ -31,6 +31,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  border: 5px solid black;
 }
 
 .days-of-week {
@@ -53,6 +54,12 @@
 
 .top-section {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   background-color: white;
 };
+
+.red-block {
+  color: red;
+  border: 5px red;
+}
