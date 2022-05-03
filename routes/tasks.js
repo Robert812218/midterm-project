@@ -27,7 +27,7 @@ module.exports = (db) => {
       .then(response => {
 
         console.log(response.data);
-        const results=response.data.results
+        const results = response.data.results
         if (results && results.length) {//if not empty its food
 
           res.json({ item, category: 'food' });
