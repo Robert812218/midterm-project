@@ -13,36 +13,42 @@ module.exports = (db) => {
     console.log(req.body);
     const item = req.body.item;
 
-    const foodCategoryOptions = {
-      method: 'GET',
-      url: 'https://tasty.p.rapidapi.com/recipes/auto-complete',
-      params: { prefix: item },
-      headers: {
-        'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
-        'X-RapidAPI-Key': '0a541a7215mshcf5407821f35232p1d7358jsn1173d3a79f29'
+    const removeCategory = array => {
+      let uiString = '';
+      let hyperString = '';
+      for (i = 1; i < array.length; i++) {
+        uiString += `${array[i]} `;
+        hyperString += array[i];
       }
+      return { uiString, hyperString };
     };
 
-    axios.request(foodCategoryOptions)
-      .then(response => {
+    const addMovie = (item) => {
 
-        console.log(response.data);
-        const results=response.data.results
-        if (results && results.length) {//if not empty its food
+      const itemSplit = item.split(' ');
+      const value = removeCategory(itemSplit);
 
-          res.json({ item, category: 'food' });
-          return;
-
-        }
-        res.json({ item, category: 'movie' });
-        return axios.request(movieOptions);
-      })
-      //.then
-      .catch(err => {
-        console.log(err.msg);
-      });
+      if (item.includes('eat')) {
+        res.json({ value, category: 'food' });
+        return;
+      } if (item.includes('watch')) {
+        res.json({ value, category: 'movie' });
+        return;
+      } if (item.includes('read')) {
+        res.json({ value, category: 'read' });
+        return;
+      } if (item.includes('buy')) {
+        res.json({ value, category: 'buy' });
+        return;
+      } else {
+        res.json({ value, category: 'other' });
+        return;
+      }
+    };
+    addMovie(item);
 
   });
+
 
 
   return router;
