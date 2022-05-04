@@ -5,4 +5,4 @@ VALUES
   ('To Eat'),
   ('To Watch'),
   ('To Buy'),
-  ('general');
+  ('other');
