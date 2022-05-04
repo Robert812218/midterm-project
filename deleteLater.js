@@ -1,22 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <title>Home Page</title>
 
-  <head>
-    <title>Home Page</title>
 
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
-      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <!-- CSS bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./scripts/app.js"></script>
-  </head>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+
 
 <body class="bg-light">
   <header class="p-3 bg-dark text-white">
@@ -38,8 +40,6 @@
           </svg>
           <h2>TO DO LIST </h2>
         </div>
-
-
         <div class="text-end">
           <button type="button" class="btn btn-outline-light me-2">Login</button>
           <button type="button" class="btn btn-warning">Sign-up</button>
@@ -49,21 +49,16 @@
   </header>
 
 
-
-
-
-
-
   <!-- add item input -->
   <div class="container mb-5" style="margin-top:120px;">
-    <div class="d-flex">
-      <span class="input-group p-2">
-        <form class="form-inline task-form">
+        <div class="d-flex">
+        <span class="input-group p-2">
+          <form class="form-inline task-form">
           <input id="itemInput" class="form-control todo-item" placeholder="Add a ToDo!" name="item">
           <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </span>
-    </div>
+          </form>
+        </span>
+      </div>
     <!--  groups   -->
     <div class="d-flex mt-5" style="justify-content: space-between;">
 
@@ -123,11 +118,11 @@
           </li>
         </ul>
       </div>
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 18rem;" id="movie-list">
         <div class="card-header text-warning bg-dark">
           To Watch
         </div>
-        <ul class="list-group list-group-flush" id="movie-list">
+        <ul class="list-group list-group-flush">
           <li class="list-group-item ">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault">
@@ -212,10 +207,12 @@
   </div>
 
 
+
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
 </body>
+
 
 </html>
