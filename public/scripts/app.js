@@ -20,10 +20,6 @@ const checkMovieCategories = (inputValue) => {
   }
 };
 
-
-
-
-
 const addItemToCategory = (item, category) => {
   const productItem = $(`
   <li class="list-group-item ">

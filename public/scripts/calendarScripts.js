@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
   // export this to a new funciton later
   const date = new Date();

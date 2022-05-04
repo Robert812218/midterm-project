@@ -1,18 +1,7 @@
-* {
-  background-color: gray;
-}
-
-body {
-  display: flex;
-  flex-direction: row;
-}
-
-.arrow-left {
-  
-}
-
 .outside-container {
   display: flex;
+  border: 5px solid black;
+  flex-direction: row;
 /*   align-items: center; */
 /*   justify-content: flex-start; */
 }
@@ -34,7 +23,6 @@ body {
 }
 
 #dates-container {
-  background: red;
   height: 500px;
   width: 500px;
   display: grid;
@@ -43,10 +31,6 @@ body {
   border: 5px solid black;
 }
 
-/* test - delete later */
-.outside-container {
-  background: red;
-}
 
 .days-of-week {
   display: grid;
