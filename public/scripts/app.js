@@ -73,7 +73,7 @@ const viewsTodo = (item) => {
 
   const ahref = hyperLinks[category]
 
-
+  // create todo element
   const productItem = $(`<li class="list-group-item ">
   <input class="form-check-input" type="checkbox" value=""
     id="check-${item.id}" >
@@ -83,6 +83,7 @@ const viewsTodo = (item) => {
   </label>
 </li>`)
 
+  // add element to html
   $(`#${category}-list`).prepend(productItem);
 
   // listen on change of check box

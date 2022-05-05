@@ -26,6 +26,7 @@ module.exports = (db) => {
       } else {
         category_id = 5
       }
+      item = item.split(' ').slice(1).join(' ')
       insertToDB(item, category_id)
     };
 
