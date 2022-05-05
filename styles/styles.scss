@@ -1,0 +1,100 @@
+.outer-outer {
+  // height: 40vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 5px solid black;
+
+}
+
+.outside-container {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+}
+
+.calendar-container {
+  border: 5px outset black;
+  
+}
+
+.top-section {
+  background-color: white;
+}
+
+.months {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#dates-container {
+  // width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  border: 5px solid black;
+}
+
+
+.days-of-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.date {
+  border: 2px solid black;
+  background-color: white;
+}
+
+.date-button {
+  border: 3px outset;
+}
+
+.day {
+  border: 2px solid black;
+}
+
+.month {
+  border: 2px solid black;
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+};
+
+.red-block {
+  color: red;
+  border: 5px red;
+}
+
+.date-schedule-container {
+  border: 5px solid black;
+  height: 50vh;
+  width: 40%;
+  
+}
+
+.date-schedule {
+  width: 80%;
+  height: 80%;
+}
+
+.date-hours {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.date-hour {
+  border: 5px solid black;
+}
+
+.date-header {
+  width: 100%;
+  height: 20%;
+  text-align: center;
+}

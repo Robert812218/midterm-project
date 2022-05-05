@@ -1,7 +1,24 @@
 // Client facing scripts here
-
-
-
+const checkMovieCategories = (inputValue) => {
+  const options = {
+    method: 'GET',
+    url: 'https://mdblist.p.rapidapi.com/',
+    params: { prefix: inputValue },
+    headers: {
+      'X-RapidAPI-Host': 'mdblist.p.rapidapi.com',
+      'X-RapidAPI-Key': '0a541a7215mshcf5407821f35232p1d7358jsn1173d3a79f29'
+    }
+  };
+  try {
+    axios.request(options).then(function (response) {
+      console.log(response.data);
+    }).catch(function (error) {
+      console.error(error);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const addItemToCategory = (item, category) => {
 
