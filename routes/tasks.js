@@ -10,40 +10,57 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    console.log(req.body);
     const item = req.body.item;
+    let category_id = 5;
 
-    const foodCategoryOptions = {
-      method: 'GET',
-      url: 'https://tasty.p.rapidapi.com/recipes/auto-complete',
-      params: { prefix: item },
-      headers: {
-        'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
-        'X-RapidAPI-Key': '0a541a7215mshcf5407821f35232p1d7358jsn1173d3a79f29'
+    const addMovie = (item) => {
+
+      if (item.includes('eat')) {
+        category_id = 2
+      } else if (item.includes('watch')) {
+        category_id = 3
+      } else if (item.includes('read')) {
+        category_id = 1
+      } else if (item.includes('buy')) {
+        category_id = 4
+      } else {
+        category_id = 5
       }
+      item = item.split(' ').slice(1).join(' ')
+      insertToDB(item, category_id)
     };
 
-    axios.request(foodCategoryOptions)
-      .then(response => {
+    const insertToDB = (item, category_id) => {
 
-        console.log(response.data);
-        const results=response.data.results
-        if (results && results.length) {//if not empty its food
-
-          res.json({ item, category: 'food' });
-          return;
-
-        }
-        res.json({ item, category: 'movie' });
-        return axios.request(movieOptions);
+      const user_id = 1
+      const queryValues = [item, user_id, category_id]
+      const queryString = `INSERT INTO
+                  todos (name, user_id, category_id)
+                  VALUES ($1, $2, $3) RETURNING *`
+      db.query(queryString, queryValues).then(data => {
+        res.json({ value: data.rows[0] })
       })
-      //.then
-      .catch(err => {
-        console.log(err.msg);
-      });
+    }
 
+    addMovie(item);
   });
 
+  router.get('/', (req, res) => {
+    const user_id = 1
+    const queryValues = [user_id]
+    const queryString = `SELECT * FROM todos WHERE user_id = $1`
+    return db.query(queryString, queryValues).then(data => {
+      res.json(data.rows)
+    })
+  })
+
+  // delete from DB
+  router.get('/:id', (req, res) => {
+    let itemId = req.params.id
+    return db.query(`DELETE FROM todos WHERE id = ${itemId}`).then(data => {
+      res.json(data)
+    })
+  })
 
   return router;
 };
