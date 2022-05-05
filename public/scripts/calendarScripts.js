@@ -9,10 +9,11 @@ $(document).ready(function() {
   let arr = months[currentMonth];
   addDates(arr);
   
+  // Renders the month of the button clicked
   $("button").click(function() {
     let item = findMonth(this.id);
-    
   });
+  // Brings up 24 hour block beside calendar
   $(".date-button").on('click', function() {
     let today = $(this).text();
     // console.log(`month: ${today}`);
@@ -20,6 +21,7 @@ $(document).ready(function() {
     renderDate(today, currentMonth);
 
   });
+  // Move back one month
   $(".month-previous").click(function() {
     $(".current-month-year").empty();
     let mon = findLN(currentMonth, 0);
@@ -27,6 +29,7 @@ $(document).ready(function() {
     $(".current-month-year").append(`${mon} 2022`);
     currentMonth--;
   });
+  // Move forward one month
   $(".month-next").click(function() {
     $(".current-month-year").empty();
     let mon = findLN(currentMonth, 1);
@@ -34,13 +37,14 @@ $(document).ready(function() {
     $(".current-month-year").append(`${mon} 2022`);
     currentMonth++;
   });
+  // Appends task to date/calendar
   $(".add-calendar-task").on('click', function() {
-    // console.log($(this).text());
-    // connectTaskForm();
-    let task
+    
   });
+  
 });
 
+// Appends dates to month
 const addDates = function(conditions, day) {
   let start = conditions[0];
   let mid = conditions[1];
@@ -66,6 +70,7 @@ const addDates = function(conditions, day) {
   
 };
 
+// Adds x number of blank/date/blank blocks to each month
 function appendBlock(inp) {
   const date = new Date();
   const today = date.getDate();
@@ -75,6 +80,8 @@ function appendBlock(inp) {
   $("#dates-container").append($block);
 };
 
+
+//  Takes input and determines which month to render/renders month
 function findMonth(inp) {
   let $contain = $("#dates-container");
   let $currentTimeHeader = $(".current-time-header");
@@ -172,44 +179,125 @@ function findMonth(inp) {
   return out;
 }
 
+// appends 24 hrs to the selected date
 function renderDate(day, month) {
   let $today = $(".date-schedule");
   let mon = findMonthForDate(month);
   $today.empty();
   $today.append(`<div class="date-header">${mon} ${day}</div>`);
   
+  // keeping this in case something Im about to try doesnt work
+
+  // let $dateHours = (`
+  //   <div class="date-hours">
+  //     <div class="date-hour">0:00</div>
+  //     <div class="date-hour">1:00</div>
+  //     <div class="date-hour">2:00</div>
+  //     <div class="date-hour">3:00</div>
+  //     <div class="date-hour">4:00</div>
+  //     <div class="date-hour">5:00</div>
+  //     <div class="date-hour">6:00</div>
+  //     <div class="date-hour">7:00</div>
+  //     <div class="date-hour">8:00</div>
+  //     <div class="date-hour">9:00</div>
+  //     <div class="date-hour">10:00</div>
+  //     <div class="date-hour">11:00</div>
+  //     <div class="date-hour">12:00</div>
+  //     <div class="date-hour">13:00</div>
+  //     <div class="date-hour">14:00</div>
+  //     <div class="date-hour">15:00</div>
+  //     <div class="date-hour">16:00</div>
+  //     <div class="date-hour">17:00</div>
+  //     <div class="date-hour">18:00</div>
+  //     <div class="date-hour">19:00</div>
+  //     <div class="date-hour">20:00</div>
+  //     <div class="date-hour">21:00</div>
+  //     <div class="date-hour">22:00</div>
+  //     <div class="date-hour">23:00</div>
+  //   </div>
+  // `);
+
   let $dateHours = (`
-    <div class="date-hours">
-      <div class="date-hour">0:00</div>
-      <div class="date-hour">1:00</div>
-      <div class="date-hour">2:00</div>
-      <div class="date-hour">3:00</div>
-      <div class="date-hour">4:00</div>
-      <div class="date-hour">5:00</div>
-      <div class="date-hour">6:00</div>
-      <div class="date-hour">7:00</div>
-      <div class="date-hour">8:00</div>
-      <div class="date-hour">9:00</div>
-      <div class="date-hour">10:00</div>
-      <div class="date-hour">11:00</div>
-      <div class="date-hour">12:00</div>
-      <div class="date-hour">13:00</div>
-      <div class="date-hour">14:00</div>
-      <div class="date-hour">15:00</div>
-      <div class="date-hour">16:00</div>
-      <div class="date-hour">17:00</div>
-      <div class="date-hour">18:00</div>
-      <div class="date-hour">19:00</div>
-      <div class="date-hour">20:00</div>
-      <div class="date-hour">21:00</div>
-      <div class="date-hour">22:00</div>
-      <div class="date-hour">23:00</div>
+  <div class="date-hours">
+    <div class="date-hour">
+      <p id="time-0">0:00</p>
     </div>
-  `);
+    <div class="date-hour">
+      <p id="time-1">1:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-2">2:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-3">3:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-4">4:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-5">5:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-6">6:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-7">7:00</p>
+    </div>
+    <div class="date-hour">
+        <p id="time-8">8:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-9">9:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-10">10:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-11">11:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-12">12:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-13">13:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-14">14:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-15">15:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-16">16:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-17">17:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-18">18:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-19">19:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-">20:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-">21:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-">22:00</p>
+    </div>
+    <div class="date-hour">
+      <p id="time-">23:00</p>
+    </div>
+  </div>
+`);
   $today.append($dateHours);
   return $today;
 };
 
+// Moves the calendar to the previous or following month
 const findLN = function(now, direction) {
   // direction = "last"(0) or "next"(1);
   let inp = now.toString();
@@ -408,16 +496,68 @@ function findMonthForDate(inp) {
   return str;
 };
 
-function connectTaskForm() {
-  let $form1 = (`
+// creates a form to add input to dates
+function connectTaskForm(inp) {
+  let $dataForm = (`<div class="data-form"></div>`);
+  let $formEat = (`
     <form>
-      <label for="fname">First name:</label><br>
-      <input type="text" id="fname" name="fname"><br>
-      <label for="lname">Last name:</label><br>
-      <input type="text" id="lname" name="lname">
+      <label for="new-eat-date">What day would you like to eat ${inp}?</label><br>
+      <input type="text" id="new-eat-date" name="new-eat-date"><br>
+      <label for="new-eat-time"></label>What time would you like to eat ${inp}<br>
+      <input type="text" id="new-eat-time" name="new-eat-time">
     </form>
   `);
-  return $form1;
+  let $formBuy = (`
+    <form>
+      <label for="new-purchase-date">What day would you like to go buy ${inp}?</label><br>
+      <input type="text" id="new-purchase-date" name="new-purchase-date"><br>
+      <label for="new-purchase-time">What time would you like to purchase ${inp}</label><br>
+      <input type="text" id="new-purchase-time" name="new-purchase-time">
+    </form>
+  `);
+  let $formWatch = (`
+    <form>
+      <label for="new-watch-date">What day would you like to watch ${inp}?</label><br>
+      <input type="text" id="new-watch-date" name="new-watch-date"><br>
+      <label for="new-watch-time">What time would you like to watch ${inp}</label><br>
+      <input type="text" id="new-watch-time" name="new-watch-time">
+    </form>
+  `);
+  let $formRead = (`
+    <form>
+    <form>
+      <label for="new-read-date">What day would you like to read ${inp}?</label><br>
+      <input type="text" id="new-read-date" name="new-read-date"><br>
+      <label for="new-read-time">What time would you like to read ${inp}</label><br>
+      <input type="text" id="new-read-time" name="new-read-time">
+    </form>
+  `);
+  let $formGeneral = (`
+    <form>
+      <label for="new-general-date">What day would you like to ... ${inp}?</label><br>
+      <input type="text" id="new-general-date" name="new-general-date"><br>
+      <label for="new-general-time">What time would you like to ... ${inp}</label><br>
+      <input type="text" id="new-general-time" name="new-general-time">
+    </form>
+  `);
+  switch(inp[0]) {
+    case 'Eat':
+      $dataForm.append($formEat);
+      break;
+    case 'Buy':
+      $dataForm.append($formBuy);
+      break;
+    case 'Watch':
+      $dataForm.append($formWatch);
+      break;
+    case 'Read':
+      $dataForm.append($formRead);
+      break;
+    default:
+      $dataForm.append($formGeneral);
+      break;
+  }
+  return $dataForm;
 }
 
 // arr: [blankBefore, startIndex, blankAfter];
@@ -437,6 +577,10 @@ const months = {
 }
 
 
+const datesAndEventsJan = {
+  // array items:
+  // task: [month, date, time]
+}
 
 
 // // arr: [blankBefore, startIndex, blankAfter];
