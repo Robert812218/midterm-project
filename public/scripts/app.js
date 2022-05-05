@@ -64,11 +64,27 @@ const viewsTodo = (item) => {
   else if (item.category_id == 4) category = 'buy';
   else if (item.category_id == 5) category = 'other';
 
+  const linkArry = item.name.split(' ')
+  console.log(linkArry);
+
+  let linkParam = ''
+
+  linkArry.forEach((item, index) => {
+    if (index > 0) {
+      linkParam += `+${item}`
+    }
+    else {
+      linkParam += item
+    }
+
+  })
+  console.log(linkParam);
+
   const hyperLinks = {
-    movie: `https://www.imdb.com/find?q=${item.name}&ref_=nv_sr_sm`,
-    food: `https://tasty.co/search?q=${item.name}&sort=popular`,
-    buy: `https://www.amazon.ca/s?k=${item.name}&crid=1VLI5L8C3HVLR&sprefix=chair%2Caps%2C92&ref=nb_sb_noss_1`,
-    read: `https://www.google.com/search?tbm=bks&q=${item.name}`
+    movie: `https://www.imdb.com/find?q=${linkParam}&ref_=nv_sr_sm`,
+    food: `https://tasty.co/search?q=${linkParam}&sort=popular`,
+    buy: `https://www.amazon.ca/s?k=${linkParam}&crid=1VLI5L8C3HVLR&sprefix=chair%2Caps%2C92&ref=nb_sb_noss_1`,
+    read: `https://www.google.com/search?tbm=bks&q=${linkParam}`
   }
 
   const ahref = hyperLinks[category]
