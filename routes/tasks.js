@@ -23,7 +23,7 @@ module.exports = (db) => {
         category_id = 1
       } else if (item.includes('buy')) {
         category_id = 4
-      } else {
+      } else if (!item.includes('buy' || 'read' || 'watch' || 'eat')) {
         category_id = 5
       }
       item = item.split(' ').slice(1).join(' ')
