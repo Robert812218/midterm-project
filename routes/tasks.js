@@ -38,6 +38,7 @@ module.exports = (db) => {
                   todos (name, user_id, category_id)
                   VALUES ($1, $2, $3) RETURNING *`
       db.query(queryString, queryValues).then(data => {
+        console.log(data);
         res.json({ value: data.rows[0] })
       })
     }

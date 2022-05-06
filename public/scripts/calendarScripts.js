@@ -297,6 +297,10 @@ function renderDate(day, month) {
   return $today;
 };
 
+
+// $(this).children.text()
+// $(this).parent.text()
+
 // Moves the calendar to the previous or following month
 const findLN = function(now, direction) {
   // direction = "last"(0) or "next"(1);
@@ -558,7 +562,7 @@ function connectTaskForm(inp) {
       break;
   }
   return $dataForm;
-}
+};
 
 // arr: [blankBefore, startIndex, blankAfter];
 const months = {
