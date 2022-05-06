@@ -602,8 +602,11 @@ $(document).ready(function() {
     <button type="submit" id="new-task-form-submit">SUBMIT</button>
   </form>
   `);
-   $(".new-time-date-form").append($newForm);
-   return $newForm;
+   if (name) {
+    $(".new-time-date-form").append($newForm);
+    return $newForm;
+   }
+   
  };
   
  // arr: [blankBefore, startIndex, blankAfter];
