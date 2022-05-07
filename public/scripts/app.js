@@ -113,15 +113,14 @@ const viewsTodo = (item) => {
   <label class="form-check-label" for="check-${item.id}" >
     ${item.name}
 
-    <button type="button" class="btn btn-dark btn-sm" style="margin-left:70px;"><a href =${ahref}> more info</a></button>
+
     <button class="render-form" onclick="createCalendarComponent('${item.name}')">ADD</button>
+    </label>
+
+
   </label>
-
-  </label></div>
-  <button type="button" class="btn btn-dark btn-sm"><a href =${ahref}> more info</a></button>
-
-  </label></div>
     <button type="button" class="btn btn-dark btn-sm"><a href =${ahref}> more info</a></button>
+    </div>
   </li>`);
 
   // add element to html

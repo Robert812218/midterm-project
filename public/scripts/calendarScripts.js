@@ -58,11 +58,12 @@ $(document).ready(function() {
       // const label = $(".form-check-label").text();
       // console.log(label);
 
-
+      
     });
+
     $(".new-time-date-form").on('click', function(inp) {
       console.log("this is a form");
-      $(".render-form").append(createCalendarComponent());
+      // $(".render-form").append(createCalendarComponent());
       
     });
     $("#new-task-time").on('submit', function() {
