@@ -71,6 +71,12 @@ $(document).ready(function() {
       $(".render-form").append(createCalendarComponent());
       
     });
+    $("#new-task-time").on('submit', function() {
+      actuallyPutTaskOnTheDate(time, task);
+    });
+    $("#new-task-date").on('submit', function() {
+      actuallyPutTaskOnTheDate(time, task);
+    })
   });
   
  // Appends dates to month
@@ -640,8 +646,88 @@ function appendBlock(inp) {
     $(".new-time-date-form").append($newForm);
     return $newForm;
    }
-   
  };
+
+ function actuallyPutTaskOnTheDate(time, task) {
+   let $thing = (`<div>${task} at ${time}</div>`);
+   $thing.css({"background-color": "red"});
+    switch(time) {
+      case "0:00":
+        $("#time-0").append($thing);
+        break;
+      case "1:00":
+        $("#time-1").append($thing);
+        break;
+      case "2:00":
+        $("#time-2").append($thing);
+        break;
+      case "3:00":
+        $("#time-3").append($thing);
+        break;
+      case "4:00":
+        $("#time-4").append($thing);
+        break;
+      case "5:00":
+        $("#time-5").append($thing);
+        break;
+      case "6:00":
+        $("#time-6").append($thing);
+        break;
+      case "7:00":
+        $("#time-7").append($thing);
+        break;
+      case "8:00":
+        $("#time-8").append($thing);
+        break;
+      case "9:00":
+        $("#time-9").append($thing);
+        break;
+      case "10:00":
+        $("#time-10").append($thing);
+        break;
+      case "11:00":
+        $("#time-11").append($thing);
+        break;
+      case "12:00":
+        $("#time-12").append($thing);
+        break;
+      case "13:00":
+        $("#time-13").append($thing);
+        break;
+      case "14:00":
+        $("#time-14").append($thing);
+        break;
+      case "15:00":
+        $("#time-15").append($thing);
+        break;
+      case "16:00":
+        $("#time-16").append($thing);
+        break;
+      case "17:00":
+        $("#time-17").append($thing);
+        break;
+      case "18:00":
+        $("#time-18").append($thing);
+        break;
+      case "19:00":
+        $("#time-19").append($thing);
+        break;
+      case "20:00":
+        $("#time-20").append($thing);
+        break;
+      case "21:00":
+        $("#time-21").append($thing);
+        break;
+      case "22:00":
+        $("#time-22").append($thing);
+        break;
+      case "23:00":
+        $("#time-23").append($thing);
+        break;
+    
+    }
+    
+ }
   
  // arr: [blankBefore, startIndex, blankAfter];
  const months = {
