@@ -8,9 +8,16 @@ $(document).ready(function() {
   const $contain = $("#dates-container");
   let arr = months[currentMonth];
   addDates(arr);
+<<<<<<< HEAD
    // Renders the month of the button clicked
   $("button").click(function() {
     let item = findMonth(this.id);
+=======
+
+  $("button").click(function() {
+    let item = findMonth(this.id);
+
+>>>>>>> 90a3ca0eb91691edb0a50bff0585a39968845751
   });
   // Brings up 24 hour block beside calendar
   $(".date-button").on('click', function() {
@@ -84,6 +91,7 @@ $(document).ready(function() {
     appendBlock(count);
     count++;
   } while (count < mid);
+<<<<<<< HEAD
    do {
     appendBlock(0);
     end--;
@@ -97,6 +105,22 @@ $(document).ready(function() {
   let $block = (inp > 0 ? `<div class="date">
   <button class="date-button">${inp}</button></div>` : `<div></div>`);
   
+=======
+
+  do {
+    appendBlock(0);
+    end--;
+  } while (end > 0);
+
+};
+
+function appendBlock(inp) {
+  const date = new Date();
+  const today = date.getDate();
+  let $block = (inp > 0 ? `<div class="date">
+  <button class="date-button btn btn-outline-primary">${inp}</button></div>` : `<div></div>`);
+
+>>>>>>> 90a3ca0eb91691edb0a50bff0585a39968845751
   $("#dates-container").append($block);
  };
   
@@ -205,6 +229,7 @@ $(document).ready(function() {
   let mon = findMonthForDate(month);
   $today.empty();
   $today.append(`<div class="date-header">${mon} ${day}</div>`);
+<<<<<<< HEAD
    // keeping this in case something Im about to try doesnt work
   
   // let $dateHours = (`
@@ -236,6 +261,9 @@ $(document).ready(function() {
   //   </div>
   // `);
   
+=======
+
+>>>>>>> 90a3ca0eb91691edb0a50bff0585a39968845751
   let $dateHours = (`
   <div class="date-hours">
     <div class="date-hour">
@@ -326,7 +354,12 @@ $(document).ready(function() {
   let inp = now.toString();
   let dir = direction.toString();
   let month = "";
+<<<<<<< HEAD
    switch(now){
+=======
+
+  switch(now){
+>>>>>>> 90a3ca0eb91691edb0a50bff0585a39968845751
     case 0:
       switch(dir){
         case "0":
