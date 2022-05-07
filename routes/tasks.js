@@ -10,58 +10,40 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.post("/", (req, res) => {
-    console.log(req.body);
     const item = req.body.item;
     let category_id = 5;
-    const removeCategory = array => {
-      let uiString = '';
-      let hyperString = '';
-      for (i = 1; i < array.length; i++) {
-        uiString += `${array[i]} `;
-        hyperString += array[i];
-      }
-      return { uiString, hyperString };
-    };
 
     const addMovie = (item) => {
 
-      const itemSplit = item.split(' ');
-      const value = removeCategory(itemSplit);
-
       if (item.includes('eat')) {
         category_id = 2
-        res.json({ value, category: 'food', category_id });
       } else if (item.includes('watch')) {
         category_id = 3
-        res.json({ value, category: 'movie', category_id });
       } else if (item.includes('read')) {
         category_id = 1
-        res.json({ value, category: 'read', category_id });
       } else if (item.includes('buy')) {
         category_id = 4
-        res.json({ value, category: 'buy', category_id });
-      } else {
+      } else if (!item.includes('buy' || 'read' || 'watch' ||'eat')) {
         category_id = 5
-        res.json({ value, category: 'other', category_id });
       }
-      insertToDB(value.uiString, category_id)
+      item = item.split(' ').slice(1).join(' ')
+      insertToDB(item, category_id)
     };
 
-    const insertToDB = (value, category_id) => {
+    const insertToDB = (item, category_id) => {
 
       const user_id = 1
-      const queryValues = [value, user_id, category_id]
+      const queryValues = [item, user_id, category_id]
       const queryString = `INSERT INTO
                   todos (name, user_id, category_id)
                   VALUES ($1, $2, $3) RETURNING *`
-      return db.query(queryString, queryValues).then(data => {
-        // console.log(data.rows);
+      db.query(queryString, queryValues).then(data => {
+        console.log(data);
+        res.json({ value: data.rows[0] })
       })
     }
 
     addMovie(item);
-
-
   });
 
   router.get('/', (req, res) => {
@@ -73,6 +55,7 @@ module.exports = (db) => {
     })
   })
 
+  // delete from DB
   router.get('/:id', (req, res) => {
     let itemId = req.params.id
     return db.query(`DELETE FROM todos WHERE id = ${itemId}`).then(data => {
