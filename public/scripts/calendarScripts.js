@@ -105,7 +105,8 @@ $(document).ready(function() {
  function findMonth(inp) {
   let $contain = $("#dates-container");
   let $currentTimeHeader = $(".current-time-header");
-   let out = 0;
+
+  let out = 0;
   switch(inp) {
     case "January":
     case 0:

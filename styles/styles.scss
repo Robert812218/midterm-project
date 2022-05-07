@@ -2,20 +2,20 @@
   // height: 40vh;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  border: 5px solid black;
+  justify-content: space-between;
+
 
 }
 
 .outside-container {
   height: 50vh;
-  display: flex;
-  align-items: center;
+ margin-top: 45px;
+
 }
 
 .calendar-container {
-  border: 5px outset black;
-  
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
 }
 
 .top-section {
@@ -33,37 +33,38 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  border: 5px solid black;
+  ;
 }
 
 
 .days-of-week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  gap:4px;
 }
 
 .date {
-  border: 2px solid black;
+  border: 0px solid black;
   background-color: white;
 }
 
 .date-button {
-  border: 3px outset;
+  width: 100%;
 }
 
 .day {
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .month {
-  border: 2px solid black;
+  border: 0px solid black;
 }
 
 .top-section {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
 };
 
 .red-block {
@@ -72,29 +73,34 @@
 }
 
 .date-schedule-container {
-  border: 5px solid black;
+
   height: 50vh;
   width: 40%;
-  
+
 }
 
 .date-schedule {
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
 }
 
 .date-hours {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(12, 1fr);
+  gap: 10px;
 }
 
 .date-hour {
-  border: 5px solid black;
+  padding: 3.5px;
+    padding-left: 8px;
+    box-shadow: rgb(78 83 86 / 20%) 0px 2px 8px 0px;
+
 }
 
 .date-header {
+  margin-bottom: 5px;
   width: 100%;
-  height: 20%;
   text-align: center;
 }

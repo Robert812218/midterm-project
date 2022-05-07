@@ -10,7 +10,7 @@ $(document).ready(function() {
   const $contain = $("#dates-container");
   let arr = months[currentMonth];
   addDates(arr);
-  
+
   $("button").click(function() {
     let item = findMonth(this.id);
     // console.log(item);
@@ -54,19 +54,19 @@ const addDates = function(conditions, day) {
     appendBlock(count);
     count++;
   } while (count < mid);
-  
+
   do {
     appendBlock(0);
     end--;
   } while (end > 0);
-  
+
 };
 
 function appendBlock(inp) {
   const date = new Date();
   const today = date.getDate();
   let $block = (inp > 0 ? `<div class="date">
-  <button class="date-button">${inp}</button></div>` : `<div></div>`);
+  <button class="date-button btn btn-outline-primary">${inp}</button></div>` : `<div></div>`);
 
   $("#dates-container").append($block);
 };
@@ -153,7 +153,7 @@ function findMonth(inp) {
 function renderDate() {
   let $today = $("<div>AREA</div>");
   $today.empty();
-  
+
   let $quarterOne = (`
      <div class="date-hour">0:00</div>
      <div class="date-hour">1:00</div>
@@ -186,12 +186,12 @@ function renderDate() {
     <div class="date-hour">22:00</div>
     <div class="date-hour">23:00</div>
   `);
-    
+
    $today.append($quarterOne);
    $today.append($quarterTwo);
    $today.append($quarterThree);
    $today.append($quarterFour);
-  
+
    return $today;
 };
 
@@ -200,7 +200,7 @@ const findLN = function(now, direction) {
   let inp = now.toString();
   let dir = direction.toString();
   let month = "";
-  
+
   switch(now){
     case 0:
       switch(dir){

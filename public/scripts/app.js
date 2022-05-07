@@ -33,6 +33,7 @@ const addItemToCategory = (item, category) => {
   const ahref = hyperLinks[category]
 
 
+<<<<<<< HEAD
 //   const productItem = $(`<li class="list-group-item ">
 //   <input class="form-check-input" type="checkbox" value=""
 //    id="check-${item.id}">
@@ -42,6 +43,17 @@ const addItemToCategory = (item, category) => {
 //   </label>
 // </li>`)
 //   $(`#${category}-list`).prepend(productItem);
+=======
+  const productItem = $(`<li class="list-group-item ">
+  <div class="d-flex"><input class="form-check-input" type="checkbox" value=""
+   id="check-${item.id}">
+  <label class="form-check-label" for="check-${item.id}">
+    ${item}
+  </label></div>
+  <button type="button" class="btn btn-dark btn-sm" "><a href =${ahref}> more info</a></button>
+</li>`)
+  $(`#${category}-list`).prepend(productItem);
+>>>>>>> 90a3ca0eb91691edb0a50bff0585a39968845751
 };
 
 
@@ -108,13 +120,19 @@ const viewsTodo = (item) => {
   console.log(`itemName: ${item.name}`);
   // create todo element
   const productItem = $(`<li class="list-group-item ">
-  <input class="form-check-input" type="checkbox" value=""
+  <div class="d-flex" style="gap:8px"><input class="form-check-input" type="checkbox" value=""
     id="check-${item.id}" >
   <label class="form-check-label" for="check-${item.id}" >
     ${item.name}
+<<<<<<< HEAD
     <button type="button" class="btn btn-dark btn-sm" style="margin-left:70px;"><a href =${ahref}> more info</a></button>
     <button class="render-form" onclick="createCalendarComponent('${item.name}')">ADD</button>
   </label>
+=======
+
+  </label></div>
+  <button type="button" class="btn btn-dark btn-sm"><a href =${ahref}> more info</a></button>
+>>>>>>> 90a3ca0eb91691edb0a50bff0585a39968845751
 </li>`)
 
   // add element to html
